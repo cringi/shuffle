@@ -5,21 +5,21 @@
  */
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 public class Deck {
     private ArrayList<Card> deck;
 
-
     public Deck() {
-        deck = new ArrayList<Card>();
+        deck = new ArrayList<>();
         deck = initDeck();
         deck = shuffleDeck();
         System.out.println(deck);
-
     }
 
     public static ArrayList<Card> initDeck() {
-        ArrayList<String> ranks = new ArrayList<String>();
+        ArrayList<String> ranks = new ArrayList<>();
 
         ranks.add("ace");
 
@@ -36,13 +36,13 @@ public class Deck {
         ranks.add("queen");
         ranks.add("king");
 
-        ArrayList<String> suites = new ArrayList<String>();
+        ArrayList<String> suites = new ArrayList<>();
         suites.add("clubs");
         suites.add("diamonds");
         suites.add("hearts");
         suites.add("spades");
 
-        ArrayList<Card> deck = new ArrayList<Card>();
+        ArrayList<Card> deck = new ArrayList<>();
         for (String s : suites) {
             int p = 1;
             for (String r : ranks) {
@@ -68,20 +68,15 @@ public class Deck {
         Card c = deck.get(0);
         deck.remove(0);
 
-
         return c;
     }
 
     //SHUFFLE ****************************
 
     public ArrayList<Card> shuffleDeck() {
+        ArrayList<Card> t = deck;
+        Collections.shuffle(t, new Random(System.nanoTime()));
 
-        ArrayList<Card> t = new ArrayList<Card>();
-
-        //your code here
         return t;
-
-
     }
-
 }
