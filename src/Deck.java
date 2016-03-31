@@ -75,7 +75,7 @@ public class Deck {
 
     public ArrayList<Card> shuffleDeck() {
         ArrayList<Card> t = deck;
-        Collections.shuffle(t, new Random(System.nanoTime()));
+        Collections.shuffle(t, new Random(System.nanoTime() * System.currentTimeMillis())); // this probably isn't truly random but
 
         return t;
     }
